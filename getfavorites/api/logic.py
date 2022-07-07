@@ -4,7 +4,7 @@ import json
 
 
 def get_comics_id():
-    url = 'http://localhost:8000/searchComics/comics/'
+    url = 'http://172.17.0.2:8000/searchComics/comics/'
     resp = requests.get(url)
     comics = resp.content
     comics = json.loads(comics.decode('utf-8'))
@@ -20,7 +20,7 @@ def get_comics_id():
 
 def get_user_token(authdata):
     resp = requests.post(
-        'http://localhost:8001/users/authentication/', authdata)
+        'http://172.17.0.3:8000/users/authentication/', authdata)
     token = resp.content
     token = json.loads(token.decode('utf-8'))
     token = token['access']
